@@ -1,0 +1,28 @@
+name: Secrets and Environment Variables
+
+on:
+  workflow_dispatch
+
+jobs:
+  top-secret:
+    runs-on: ubuntu-latest
+    env: 
+       APP_ID: ${{ secrets.APP_ID }}
+
+
+    steps:
+       - name: Read a variable
+         run: echo " My APP_ID value is ${{ vars.APP_ID }} 
+     
+       - name: Tell me a secret!
+         run: echo " My existing secret is ${{ secrets.API_KEYS }}"
+
+       - name: Unset secret
+         run: echo " My unkown secret is ${{ secrets.DOES_NOT_EXIST }}"
+     
+    
+
+    
+
+    
+  
